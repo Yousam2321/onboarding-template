@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstddef>
-
+#include <vector>
 // Starter Grid for the 2D heat-diffusion problem.
 //
 // The evaluation harness uses operator() to set initial conditions and to read
@@ -11,6 +11,7 @@ class Grid {
 private:
   std::size_t rows_;
   std::size_t cols_;
+  std::vector<double> cells_;
 
 public:
   Grid(std::size_t rows, std::size_t cols);
