@@ -15,9 +15,16 @@ private:
   std::vector<double> cells_;
 
 public:
-  Grid(std::size_t rows, std::size_t cols);
+  Grid(std::size_t rows, std::size_t cols)
+  : rows_(rows),
+    cols_(cols),
+    cells_(rows * cols, 0.0)
+{}
 
-  double& operator()(std::size_t i, std::size_t j);
+  double& operator()(std::size_t i, std::size_t j)
+{
+  return cells_[i * cols_ + j];
+}
   double  operator()(std::size_t i, std::size_t j) const;
 };  
 
