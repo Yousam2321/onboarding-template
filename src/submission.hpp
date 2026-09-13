@@ -11,6 +11,7 @@ class Grid {
 private:
   std::size_t rows_;
   std::size_t cols_;
+// Convert (row, column) to one index so the 2D grid can be stored in one vector.
   std::vector<double> cells_;
 
 public:
