@@ -25,9 +25,20 @@ public:
 {
   return cells_[i * cols_ + j];
 }
-  double  operator()(std::size_t i, std::size_t j) const;
-};  
+  double  operator()(std::size_t i, std::size_t j) const
+{
+  return cells_[i * cols_ + j];
+}
 
+std::size_t rows() const
+{
+  return rows_;
+}
+
+std::size_t cols() const
+{
+  return cols_;
+}
 // Apply the five-point stencil over all interior points, copying the boundary
 // values unchanged from old_grid to new_grid. Implement your solution here.
 void apply_stencil(const Grid& old_grid, Grid& new_grid);
