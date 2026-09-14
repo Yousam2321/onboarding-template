@@ -65,4 +65,19 @@ for (std::size_t i = 0; i < rows; ++i)
   new_grid(i, 0) = old_grid(i, 0);
   new_grid(i, cols - 1) = old_grid(i, cols - 1);
 }
+// Calculate every interior cell.
+for (std::size_t i = 1; i < rows - 1; ++i)
+{
+  for (std::size_t j = 1; j < cols - 1; ++j)
+  {
+    new_grid(i, j) =
+        0.5 * old_grid(i, j) +
+        0.125 * (
+            old_grid(i - 1, j) +
+            old_grid(i + 1, j) +
+            old_grid(i, j - 1) +
+            old_grid(i, j + 1)
+        );
+  }
+}
 }
