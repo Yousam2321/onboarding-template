@@ -21,8 +21,7 @@ public:
       cells_(rows * cols, 0.0)
   {}
 
-  // Convert (row, column) to one index so the 2D grid can be
-  // stored in one vector.
+  // Convert (row, column) to one index so the 2D grid can be stored in one vector.
   double& operator()(std::size_t i, std::size_t j) {
     return cells_[i * cols_ + j];
   }
