@@ -42,4 +42,26 @@ std::size_t cols() const
 };
 // Apply the five-point stencil over all interior points, copying the boundary
 // values unchanged from old_grid to new_grid. Implement your solution here.
-void apply_stencil(const Grid& old_grid, Grid& new_grid);
+inline void apply_stencil(const Grid& old_grid, Grid& new_grid)
+{
+  const std::size_t rows = old_grid.rows();
+  const std::size_t cols = old_grid.cols();
+}
+if (rows == 0 || cols == 0)
+{
+  return;
+}
+
+// Copy the top and bottom rows.
+for (std::size_t j = 0; j < cols; ++j)
+{
+  new_grid(0, j) = old_grid(0, j);
+  new_grid(rows - 1, j) = old_grid(rows - 1, j);
+}
+
+// Copy the left and right columns.
+for (std::size_t i = 0; i < rows; ++i)
+{
+  new_grid(i, 0) = old_grid(i, 0);
+  new_grid(i, cols - 1) = old_grid(i, cols - 1);
+}
